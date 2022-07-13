@@ -1,8 +1,9 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-
-from django.http import HttpResponse
+from django.urls import reverse
 
 from .models import Food, Customer, Order
+from .forms import FoodForm
 
 
 def index(request):
@@ -19,6 +20,22 @@ def foods_show(request, food_id):
     food = get_object_or_404(Food, pk=food_id)
     context = {'food': food}
     return render(request, 'webkiosk/foods/show.html', context)
+
+
+def foods_new(request):
+    form = FoodForm()
+    context = {'form': form}
+    return render(request, 'webkiosk/foods/new.html', context)
+
+
+def foods_create(request):
+    if request.method == 'POST':
+        form = FoodForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('webkiosk:foods_index'))
+    else:
+        return HttpResponseRedirect(reverse('webkiosk:foods_new'))
 
 
 def customers_index(request):

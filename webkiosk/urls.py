@@ -7,8 +7,8 @@ urlpatterns = [
     path('', views.index, name='index'),
 
     path('foods', views.foods_index, name='foods_index'),
-    # path('foods/new', views.foods_new, name='foods_new'),
-    # path('foods/create', views.foods_create, name='foods_create'),
+    path('foods/new', views.foods_new, name='foods_new'),
+    path('foods/create', views.foods_create, name='foods_create'),
     path('foods/<int:food_id>', views.foods_show, name='foods_show'),
     # path('foods/<int:food_id>/edit', views.foods_edit, name='foods_edit'),
     # path('foods/<int:food_id>/update', views.foods_edit, name='foods_update'),
