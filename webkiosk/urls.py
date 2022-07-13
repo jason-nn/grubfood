@@ -31,9 +31,9 @@ urlpatterns = [
     path('orders/new', views.orders_new, name='orders_new'),
     path('orders/create', views.orders_create, name='orders_create'),
     path('orders/<int:order_id>', views.orders_show, name='orders_show'),
-    # path('orders/<int:order_id>/edit', views.orders_edit, name='orders_edit'),
-    # path('orders/<int:order_id>/update',
-    #      views.orders_update, name='orders_update'),
+    path('orders/<int:order_id>/edit', views.orders_edit, name='orders_edit'),
+    path('orders/<int:order_id>/update',
+         views.orders_update, name='orders_update'),
     # path('orders/<int:order_id>/destroy',
     #      views.orders_destroy, name='orders_destroy'),
 ]

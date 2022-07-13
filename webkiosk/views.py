@@ -128,3 +128,21 @@ def orders_create(request):
             return HttpResponseRedirect(reverse('webkiosk:orders_index'))
     else:
         return HttpResponseRedirect(reverse('webkiosk:orders_new'))
+
+
+def orders_edit(request, order_id):
+    order = get_object_or_404(Order, pk=order_id)
+    form = OrderForm(instance=order)
+    context = {'form': form, 'order_id': order_id}
+    return render(request, 'webkiosk/orders/edit.html', context)
+
+
+def orders_update(request, order_id):
+    order = get_object_or_404(Order, pk=order_id)
+    if request.method == 'POST':
+        form = OrderForm(request.POST, instance=order)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('webkiosk:orders_index'))
+    else:
+        return HttpResponseRedirect(reverse('webkiosk:orders_edit', args=(order_id,)))
