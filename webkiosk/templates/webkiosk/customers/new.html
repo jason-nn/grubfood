@@ -1,0 +1,10 @@
+{% extends 'webkiosk/base.html' %} {% block body %}
+
+<h1>Add customer</h1>
+
+<form action="{% url 'webkiosk:customers_create' %}" method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" value="Add customer" />
+</form>
+
+{% endblock body %}

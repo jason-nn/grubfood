@@ -24,14 +24,8 @@ def foods_show(request, food_id):
 
 def foods_new(request):
     form = FoodForm()
-    context = {
-        'form': form,
-        'title': 'Add food',
-        'url': 'webkiosk:foods_create',
-        'method': 'post',
-        'button': 'Add food'
-    }
-    return render(request, 'webkiosk/form.html', context)
+    context = {'form': form}
+    return render(request, 'webkiosk/foods/new.html', context)
 
 
 def foods_create(request):
@@ -58,14 +52,8 @@ def customers_show(request, customer_id):
 
 def customers_new(request):
     form = CustomerForm()
-    context = {
-        'form': form,
-        'title': 'Add customer',
-        'url': 'webkiosk:customers_create',
-        'method': 'post',
-        'button': 'Add customer'
-    }
-    return render(request, 'webkiosk/form.html', context)
+    context = {'form': form}
+    return render(request, 'webkiosk/customers/new.html', context)
 
 
 def customers_create(request):
@@ -92,14 +80,8 @@ def orders_show(request, order_id):
 
 def orders_new(request):
     form = OrderForm()
-    context = {
-        'form': form,
-        'title': 'Add order',
-        'url': 'webkiosk:orders_create',
-        'method': 'post',
-        'button': 'Add order'
-    }
-    return render(request, 'webkiosk/form.html', context)
+    context = {'form': form}
+    return render(request, 'webkiosk/orders/new.html', context)
 
 
 def orders_create(request):
