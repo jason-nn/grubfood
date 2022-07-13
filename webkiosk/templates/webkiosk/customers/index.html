@@ -16,7 +16,7 @@
     <td>{{ customer.pk }}</td>
     <td>{{ customer.firstname }} {{ customer.lastname }}</td>
     <td>{{ customer.city }}</td>
-    <td><a href="">Show</a></td>
+    <td><a href="{% url 'webkiosk:customers_show' customer.pk %}">Show</a></td>
     <td><a href="">Edit</a></td>
     <td><a href="">Delete</a></td>
   </tr>

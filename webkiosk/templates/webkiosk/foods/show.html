@@ -1,0 +1,24 @@
+{% extends 'webkiosk/base.html' %} {% block body %}
+
+<h1>{{ food.name }}</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <td>{{ food.pk }}</td>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <td>{{ food.name }}</td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>{{ food.description }}</td>
+  </tr>
+  <tr>
+    <th>Price</th>
+    <td>{{ food.price }}</td>
+  </tr>
+</table>
+
+{% endblock body %}

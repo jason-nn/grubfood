@@ -1,0 +1,40 @@
+{% extends 'webkiosk/base.html' %} {% block body %}
+
+<h1>{{ order.name }}</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <td>{{ order.pk }}</td>
+  </tr>
+  <tr>
+    <th>Date and Time of Order</th>
+    <td>{{ order.orderdatetime }}</td>
+  </tr>
+  <tr>
+    <th>Payment Mode</th>
+    <td>{{ order.paymentmode }}</td>
+  </tr>
+  <tr>
+    <th>Customer</th>
+    <td>
+      <a href="{% url 'webkiosk:customers_show' order.customer.pk %}">
+        {{ order.customer.firstname }} {{ order.customer.lastname }}
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <th>Food</th>
+    <td>
+      <a href="{% url 'webkiosk:foods_show' order.food.pk %}">
+        {{ order.food.name }}
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <th>Quantity</th>
+    <td>{{ order.quantity }}</td>
+  </tr>
+</table>
+
+{% endblock body %}

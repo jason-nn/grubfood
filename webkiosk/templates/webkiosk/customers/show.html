@@ -1,0 +1,28 @@
+{% extends 'webkiosk/base.html' %} {% block body %}
+
+<h1>{{ customer.firstname }} {{ customer.lastname }}</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <td>{{ customer.pk }}</td>
+  </tr>
+  <tr>
+    <th>First Name</th>
+    <td>{{ customer.firstname }}</td>
+  </tr>
+  <tr>
+    <th>Last Name</th>
+    <td>{{ customer.lastname }}</td>
+  </tr>
+  <tr>
+    <th>Address</th>
+    <td>{{ customer.address }}</td>
+  </tr>
+  <tr>
+    <th>City</th>
+    <td>{{ customer.city }}</td>
+  </tr>
+</table>
+
+{% endblock body %}
