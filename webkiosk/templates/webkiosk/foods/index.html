@@ -1,28 +1,32 @@
 {% extends 'webkiosk/base.html' %} {% block body %}
 
-<h1>Foods</h1>
+<main class="wide">
+  <div class="header-main">
+    <h1>Foods</h1>
+    <a href="{% url 'webkiosk:foods_new' %}">
+      <button class="button-primary">Add food</button>
+    </a>
+  </div>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Name</th>
-    <th>Price</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  {% for food in foods %}
-  <tr>
-    <td>{{ food.pk }}</td>
-    <td>{{ food.name }}</td>
-    <td>{{ food.price }}</td>
-    <td><a href="{% url 'webkiosk:foods_show' food.pk %}">Show</a></td>
-    <td><a href="{% url 'webkiosk:foods_edit' food.pk %}">Edit</a></td>
-    <td><a href="{% url 'webkiosk:foods_delete' food.pk %}">Delete</a></td>
-  </tr>
-  {% endfor %}
-</table>
+  <div class="box" id="food-list">
+    <span class="label">ID</span>
+    <span class="label">Name</span>
+    <span class="label">Price</span>
+    <span></span>
+    <span></span>
+    <span></span>
 
-<a href="{% url 'webkiosk:foods_new' %}">Add food</a>
+    {% for food in foods %}
+
+    <span>{{ food.pk }}</span>
+    <span>{{ food.name }}</span>
+    <span>Php {{ food.price }}</span>
+    <span><a href="{% url 'webkiosk:foods_show' food.pk %}">Show</a></span>
+    <span><a href="{% url 'webkiosk:foods_edit' food.pk %}">Edit</a></span>
+    <span><a href="{% url 'webkiosk:foods_delete' food.pk %}">Delete</a></span>
+
+    {% endfor %}
+  </div>
+</main>
 
 {% endblock body %}

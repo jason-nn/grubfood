@@ -1,30 +1,37 @@
 {% extends 'webkiosk/base.html' %} {% block body %}
+<main class="wide">
+  <div class="header-main">
+    <h1>Customers</h1>
+    <a href="{% url 'webkiosk:customers_new' %}">
+      <button class="button-primary">Add customer</button>
+    </a>
+  </div>
 
-<h1>Customers</h1>
+  <div class="box" id="customer-list">
+    <span class="label">ID</span>
+    <span class="label">Full name</span>
+    <span class="label">City</span>
+    <span></span>
+    <span></span>
+    <span></span>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Full name</th>
-    <th>City</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  {% for customer in customers %}
-  <tr>
-    <td>{{ customer.pk }}</td>
-    <td>{{ customer.firstname }} {{ customer.lastname }}</td>
-    <td>{{ customer.city }}</td>
-    <td><a href="{% url 'webkiosk:customers_show' customer.pk %}">Show</a></td>
-    <td><a href="{% url 'webkiosk:customers_edit' customer.pk %}">Edit</a></td>
-    <td>
+    {% for customer in customers %}
+
+    <span>{{ customer.pk }}</span>
+    <span>{{ customer.firstname }} {{ customer.lastname }}</span>
+    <span>{{ customer.city }}</span>
+    <span>
+      <a href="{% url 'webkiosk:customers_show' customer.pk %}">Show</a>
+    </span>
+    <span>
+      <a href="{% url 'webkiosk:customers_edit' customer.pk %}">Edit</a>
+    </span>
+    <span>
       <a href="{% url 'webkiosk:customers_delete' customer.pk %}">Delete</a>
-    </td>
-  </tr>
-  {% endfor %}
-</table>
+    </span>
 
-<a href="{% url 'webkiosk:customers_new' %}">Add customer</a>
+    {% endfor %}
+  </div>
+</main>
 
 {% endblock body %}

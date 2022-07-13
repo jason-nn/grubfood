@@ -7,12 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>grubfood</title>
     <link rel="stylesheet" href="{% static 'webkiosk/index.css' %}" />
+    <link rel="icon" href="{% static 'webkiosk/images/logo.svg' %}" />
   </head>
   <body>
     <nav>
-      <li><a href="{% url 'webkiosk:foods_index' %}">Foods</a></li>
-      <li><a href="{% url 'webkiosk:customers_index' %}">Customers</a></li>
-      <li><a href="{% url 'webkiosk:orders_index' %}">Orders</a></li>
+      <div>
+        <a href="{% url 'webkiosk:index' %}" class="logo">
+          <img src="{% static 'webkiosk/images/logo.svg' %}" alt="logo" />
+          <span>grubfood</span>
+        </a>
+        <ul>
+          <li><a href="{% url 'webkiosk:foods_index' %}">Foods</a></li>
+          <li><a href="{% url 'webkiosk:customers_index' %}">Customers</a></li>
+          <li><a href="{% url 'webkiosk:orders_index' %}">Orders</a></li>
+        </ul>
+      </div>
     </nav>
     {% block body %}{% endblock body %}
   </body>
