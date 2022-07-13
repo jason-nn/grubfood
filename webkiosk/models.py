@@ -31,7 +31,7 @@ class Order(models.Model):
     ]
 
     orderdatetime = models.DateTimeField(
-        default=datetime.now(), verbose_name='date and time of order')
+        default=datetime.now(), verbose_name='date and time')
     paymentmode = models.CharField(
         max_length=4, choices=PAYMENT_CHOICES, verbose_name='payment mode')
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
