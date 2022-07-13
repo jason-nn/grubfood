@@ -25,4 +25,23 @@
   </tr>
 </table>
 
+<h2>{{ customer.firstname }} {{ customer.lastname }}'s Orders</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Date and Time of Order</th>
+    <th>Total Price of Order</th>
+    <th></th>
+  </tr>
+  {% for order in customer.orders %}
+  <tr>
+    <td>{{ order.pk }}</td>
+    <td>{{ order.orderdatetime }}</td>
+    <td>{{ order.totalprice }}</td>
+    <td><a href="{% url 'webkiosk:orders_show' order.pk %}">Show</a></td>
+  </tr>
+  {% endfor %}
+</table>
+
 {% endblock body %}
