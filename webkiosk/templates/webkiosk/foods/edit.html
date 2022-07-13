@@ -1,0 +1,10 @@
+{% extends 'webkiosk/base.html' %} {% block body %}
+
+<h1>Edit food</h1>
+
+<form action="{% url 'webkiosk:foods_update' food_id %}" method="post">
+  {% csrf_token %} {{ form.as_p }}
+  <input type="submit" value="Edit food" />
+</form>
+
+{% endblock body %}

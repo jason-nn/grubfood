@@ -38,6 +38,24 @@ def foods_create(request):
         return HttpResponseRedirect(reverse('webkiosk:foods_new'))
 
 
+def foods_edit(request, food_id):
+    food = get_object_or_404(Food, pk=food_id)
+    form = FoodForm(instance=food)
+    context = {'form': form, 'food_id': food_id}
+    return render(request, 'webkiosk/foods/edit.html', context)
+
+
+def foods_update(request, food_id):
+    food = get_object_or_404(Food, pk=food_id)
+    if request.method == 'POST':
+        form = FoodForm(request.POST, instance=food)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('webkiosk:foods_index'))
+    else:
+        return HttpResponseRedirect(reverse('webkiosk:foods_edit', args=(food_id,)))
+
+
 def customers_index(request):
     customers = Customer.objects.all()
     context = {'customers': customers}

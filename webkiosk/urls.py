@@ -10,8 +10,8 @@ urlpatterns = [
     path('foods/new', views.foods_new, name='foods_new'),
     path('foods/create', views.foods_create, name='foods_create'),
     path('foods/<int:food_id>', views.foods_show, name='foods_show'),
-    # path('foods/<int:food_id>/edit', views.foods_edit, name='foods_edit'),
-    # path('foods/<int:food_id>/update', views.foods_edit, name='foods_update'),
+    path('foods/<int:food_id>/edit', views.foods_edit, name='foods_edit'),
+    path('foods/<int:food_id>/update', views.foods_update, name='foods_update'),
     # path('foods/<int:food_id>/destroy',
     #      views.foods_destroy, name='foods_destroy'),
 
@@ -23,7 +23,7 @@ urlpatterns = [
     # path('customers/<int:customer_id>/edit',
     #      views.customers_edit, name='customers_edit'),
     # path('customers/<int:customer_id>/update',
-    #      views.customers_edit, name='customers_update'),
+    #      views.customers_update, name='customers_update'),
     # path('customers/<int:customer_id>/destroy',
     #      views.customers_destroy, name='customers_destroy'),
 
@@ -33,7 +33,7 @@ urlpatterns = [
     path('orders/<int:order_id>', views.orders_show, name='orders_show'),
     # path('orders/<int:order_id>/edit', views.orders_edit, name='orders_edit'),
     # path('orders/<int:order_id>/update',
-    #      views.orders_edit, name='orders_update'),
+    #      views.orders_update, name='orders_update'),
     # path('orders/<int:order_id>/destroy',
     #      views.orders_destroy, name='orders_destroy'),
 ]
