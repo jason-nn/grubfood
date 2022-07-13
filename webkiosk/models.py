@@ -34,4 +34,4 @@ class Order(models.Model):
     quantity = models.IntegerField()
 
     def __str__(self):
-        return f'[{self.pk}] {self.customer}, {self.food}, {self.quantity}, {self.orderdatetime}'
+        return f'[{self.pk}] {self.customer.firstname} {self.customer.lastname}, {self.food.name}, {self.quantity}, {self.orderdatetime}'
