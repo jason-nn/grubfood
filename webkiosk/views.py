@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
-from .forms import FoodForm
+from .forms import FoodForm, CustomerForm, OrderForm
 from .models import Food, Customer, Order
 
 
@@ -48,6 +48,22 @@ def customers_show(request, customer_id):
     customer = get_object_or_404(Customer, pk=customer_id)
     context = {'customer': customer}
     return render(request, 'webkiosk/customers/show.html', context)
+
+
+def customers_new(request):
+    form = CustomerForm()
+    context = {'form': form}
+    return render(request, 'webkiosk/customers/new.html', context)
+
+
+def customers_create(request):
+    if request.method == 'POST':
+        form = CustomerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('webkiosk:customers_index'))
+    else:
+        return HttpResponseRedirect(reverse('webkiosk:customers_new'))
 
 
 def orders_index(request):

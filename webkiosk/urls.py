@@ -16,8 +16,8 @@ urlpatterns = [
     #      views.foods_destroy, name='foods_destroy'),
 
     path('customers', views.customers_index, name='customers_index'),
-    # path('customers/new', views.customers_new, name='customers_new'),
-    # path('customers/create', views.customers_create, name='customers_create'),
+    path('customers/new', views.customers_new, name='customers_new'),
+    path('customers/create', views.customers_create, name='customers_create'),
     path('customers/<int:customer_id>',
          views.customers_show, name='customers_show'),
     # path('customers/<int:customer_id>/edit',
