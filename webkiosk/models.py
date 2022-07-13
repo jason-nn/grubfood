@@ -12,8 +12,8 @@ class Food(models.Model):
 
 
 class Customer(models.Model):
-    firstname = models.CharField(max_length=200)
-    lastname = models.CharField(max_length=200)
+    firstname = models.CharField(max_length=200, verbose_name='first name')
+    lastname = models.CharField(max_length=200, verbose_name='last name')
     address = models.CharField(max_length=200)
     city = models.CharField(max_length=200)
 

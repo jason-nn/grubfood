@@ -8,11 +8,11 @@
     <td>{{ customer.pk }}</td>
   </tr>
   <tr>
-    <th>First Name</th>
+    <th>First name</th>
     <td>{{ customer.firstname }}</td>
   </tr>
   <tr>
-    <th>Last Name</th>
+    <th>Last name</th>
     <td>{{ customer.lastname }}</td>
   </tr>
   <tr>
@@ -25,13 +25,13 @@
   </tr>
 </table>
 
-<h2>{{ customer.firstname }} {{ customer.lastname }}'s Orders</h2>
+<h2>{{ customer.firstname }} {{ customer.lastname }}'s orders</h2>
 
 <table>
   <tr>
     <th>ID</th>
-    <th>Date and Time of Order</th>
-    <th>Total Price of Order</th>
+    <th>Date and time of order</th>
+    <th>Total price of order</th>
     <th></th>
   </tr>
   {% for order in customer.orders %}
