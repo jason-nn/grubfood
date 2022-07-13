@@ -1,10 +1,15 @@
 {% extends 'webkiosk/base.html' %} {% block body %}
+<main>
+  <div class="box">
+    <h1>Add food</h1>
 
-<h1>Add food</h1>
-
-<form action="{% url 'webkiosk:foods_create' %}" method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <input type="submit" value="Add food" />
-</form>
+    <form action="{% url 'webkiosk:foods_create' %}" method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <div class="align-right">
+        <input type="submit" value="Add food" class="button-primary" />
+      </div>
+    </form>
+  </div>
+</main>
 
 {% endblock body %}

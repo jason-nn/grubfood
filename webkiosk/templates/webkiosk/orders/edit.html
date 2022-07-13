@@ -1,10 +1,15 @@
 {% extends 'webkiosk/base.html' %} {% block body %}
+<main>
+  <div class="box">
+    <h1>Edit order</h1>
 
-<h1>Edit order</h1>
-
-<form action="{% url 'webkiosk:orders_update' order_id %}" method="post">
-  {% csrf_token %} {{ form.as_p }}
-  <input type="submit" value="Edit order" />
-</form>
+    <form action="{% url 'webkiosk:orders_update' order_id %}" method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <div class="align-right">
+        <input type="submit" value="Edit order" class="button-primary" />
+      </div>
+    </form>
+  </div>
+</main>
 
 {% endblock body %}
