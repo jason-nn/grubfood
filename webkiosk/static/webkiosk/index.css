@@ -450,12 +450,16 @@ footer > div {
   font-size: 14px;
 }
 
-main a {
+main .box a {
   color: #1d4ed8;
   text-transform: uppercase;
   font-size: 12px;
 
   border-bottom: 1px solid #1d4ed8;
+}
+
+a:has(button) {
+  border: none;
 }
 
 @media only screen and (max-width: 600px) {
