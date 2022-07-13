@@ -2,8 +2,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse
 
-from .models import Food, Customer, Order
 from .forms import FoodForm
+from .models import Food, Customer, Order
 
 
 def index(request):
