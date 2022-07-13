@@ -260,9 +260,7 @@ input:-webkit-autofill:active {
   font-family: CircularStd-Medium;
 }
 
-#customer-list .label,
-#food-list .label,
-#order-list .label {
+.label {
   text-transform: uppercase;
   font-size: 10px;
   color: #1d4ed8;
@@ -311,7 +309,7 @@ a:hover {
 
 .customer-view-orders > div {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.5fr 2fr 1fr 0.5fr;
   grid-template-rows: auto;
 
   margin-top: 15px;
@@ -356,6 +354,19 @@ textarea {
   font-family: CircularStd-Medium;
 
   gap: 5px;
+}
+
+.two-column-details {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  grid-template-rows: auto;
+
+  margin-top: 15px;
+  font-size: 14px;
+  font-family: CircularStd-Medium;
+
+  gap: 10px;
+  align-items: center;
 }
 
 .hero {
@@ -437,6 +448,14 @@ footer > div {
   gap: 15px;
 
   font-size: 14px;
+}
+
+main a {
+  color: #1d4ed8;
+  text-transform: uppercase;
+  font-size: 12px;
+
+  border-bottom: 1px solid #1d4ed8;
 }
 
 @media only screen and (max-width: 600px) {

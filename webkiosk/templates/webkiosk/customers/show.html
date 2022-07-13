@@ -1,47 +1,47 @@
 {% extends 'webkiosk/base.html' %} {% block body %}
+<main>
+  <div class="box">
+    <h1>{{ customer.firstname }} {{ customer.lastname }}</h1>
 
-<h1>{{ customer.firstname }} {{ customer.lastname }}</h1>
+    <div class="two-column-details">
+      <span class="label">ID</span>
+      <span>{{ customer.pk }}</span>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <td>{{ customer.pk }}</td>
-  </tr>
-  <tr>
-    <th>First name</th>
-    <td>{{ customer.firstname }}</td>
-  </tr>
-  <tr>
-    <th>Last name</th>
-    <td>{{ customer.lastname }}</td>
-  </tr>
-  <tr>
-    <th>Address</th>
-    <td>{{ customer.address }}</td>
-  </tr>
-  <tr>
-    <th>City</th>
-    <td>{{ customer.city }}</td>
-  </tr>
-</table>
+      <span class="label">First name</span>
+      <span>{{ customer.firstname }}</span>
 
-<h2>{{ customer.firstname }} {{ customer.lastname }}'s orders</h2>
+      <span class="label">Last name</span>
+      <span>{{ customer.lastname }}</span>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <th>Date and time</th>
-    <th>Total price</th>
-    <th></th>
-  </tr>
-  {% for order in customer.orders %}
-  <tr>
-    <td>{{ order.pk }}</td>
-    <td>{{ order.orderdatetime }}</td>
-    <td>{{ order.totalprice }}</td>
-    <td><a href="{% url 'webkiosk:orders_show' order.pk %}">Show</a></td>
-  </tr>
-  {% endfor %}
-</table>
+      <span class="label">Address</span>
+      <span>{{ customer.address }}</span>
+
+      <span class="label">City</span>
+      <span>{{ customer.city }}</span>
+    </div>
+
+    <div class="customer-view-orders">
+      <h2>{{ customer.firstname }} {{ customer.lastname }}'s orders</h2>
+
+      <div>
+        <span class="label">ID</span>
+        <span class="label">Date and time</span>
+        <span class="label">Total price</span>
+        <span></span>
+
+        {% for order in customer.orders %}
+
+        <span>{{ order.pk }}</span>
+        <span>{{ order.orderdatetime }}</span>
+        <span>{{ order.totalprice }}</span>
+        <span
+          ><a href="{% url 'webkiosk:orders_show' order.pk %}">Show</a></span
+        >
+
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>
 
 {% endblock body %}

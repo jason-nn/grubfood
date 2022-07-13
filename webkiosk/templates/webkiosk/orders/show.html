@@ -1,44 +1,40 @@
 {% extends 'webkiosk/base.html' %} {% block body %}
 
-<h1>{{ order.name }}</h1>
+<main>
+  <div class="box">
+    <h1>Order {{ order.pk }}</h1>
 
-<table>
-  <tr>
-    <th>ID</th>
-    <td>{{ order.pk }}</td>
-  </tr>
-  <tr>
-    <th>Date and time</th>
-    <td>{{ order.orderdatetime }}</td>
-  </tr>
-  <tr>
-    <th>Payment mode</th>
-    <td>{{ order.paymentmode }}</td>
-  </tr>
-  <tr>
-    <th>Customer</th>
-    <td>
-      <a href="{% url 'webkiosk:customers_show' order.customer.pk %}">
-        {{ order.customer.firstname }} {{ order.customer.lastname }}
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <th>Food</th>
-    <td>
-      <a href="{% url 'webkiosk:foods_show' order.food.pk %}">
-        {{ order.food.name }}
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <th>Quantity</th>
-    <td>{{ order.quantity }}</td>
-  </tr>
-  <tr>
-    <th>Total price</th>
-    <td>{{ order.totalprice }}</td>
-  </tr>
-</table>
+    <div class="two-column-details">
+      <span class="label">ID</span>
+      <span>{{ order.pk }}</span>
+
+      <span class="label">Date and time</span>
+      <span>{{ order.orderdatetime }}</span>
+
+      <span class="label">Payment mode</span>
+      <span>{{ order.paymentmode }}</span>
+
+      <span class="label">Customer</span>
+      <span>
+        <a href="{% url 'webkiosk:customers_show' order.customer.pk %}">
+          {{ order.customer.firstname }} {{ order.customer.lastname }}
+        </a>
+      </span>
+
+      <span class="label">Food</span>
+      <span>
+        <a href="{% url 'webkiosk:foods_show' order.food.pk %}">
+          {{ order.food.name }}
+        </a>
+      </span>
+
+      <span class="label">Quantity</span>
+      <span>{{ order.quantity }}</span>
+
+      <span class="label">Total price</span>
+      <span>{{ order.totalprice }}</span>
+    </div>
+  </div>
+</main>
 
 {% endblock body %}
