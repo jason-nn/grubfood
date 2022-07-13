@@ -237,6 +237,10 @@ nav ul {
   margin-left: 20px;
 }
 
+nav input {
+  margin-bottom: 0;
+}
+
 .header-main {
   display: flex;
   justify-content: space-between;
@@ -458,8 +462,8 @@ main .box a {
   border-bottom: 1px solid #1d4ed8;
 }
 
-a:has(button) {
-  border: none;
+main .box form a {
+  border-bottom: none;
 }
 
 @media only screen and (max-width: 600px) {

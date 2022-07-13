@@ -16,12 +16,24 @@
           <img src="{% static 'webkiosk/images/logo.svg' %}" alt="logo" />
           <span>grubfood</span>
         </a>
+        {% if request.user.is_authenticated %}
         <ul>
           <li><a href="{% url 'webkiosk:foods_index' %}">Foods</a></li>
           <li><a href="{% url 'webkiosk:customers_index' %}">Customers</a></li>
           <li><a href="{% url 'webkiosk:orders_index' %}">Orders</a></li>
         </ul>
+        {% endif %}
       </div>
+      {% if request.user.is_authenticated %}
+      <form action="{% url 'webkiosk:logout' %}">
+        {% csrf_token %}
+        <input type="submit" value="Log out" class="button-secondary" />
+      </form>
+      {% else %}
+      <a href="{% url 'webkiosk:login' %}">
+        <button class="button-secondary">Log in</button>
+      </a>
+      {% endif %}
     </nav>
     {% block body %}{% endblock body %}
   </body>

@@ -42,4 +42,7 @@ urlpatterns = [
          views.orders_delete, name='orders_delete'),
     path('orders/<int:order_id>/destroy',
          views.orders_destroy, name='orders_destroy'),
+
+    path('login', views.login, name='login'),
+    path('logout', views.logout, name='logout'),
 ]
