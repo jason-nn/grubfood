@@ -11,7 +11,7 @@ def index(request):
 
 
 def foods_index(request):
-    foods = Food.objects.all()
+    foods = Food.objects.order_by('pk')
     context = {'foods': foods}
     return render(request, 'webkiosk/foods/index.html', context)
 
@@ -57,7 +57,7 @@ def foods_update(request, food_id):
 
 
 def customers_index(request):
-    customers = Customer.objects.all()
+    customers = Customer.objects.order_by('pk')
     context = {'customers': customers}
     return render(request, 'webkiosk/customers/index.html', context)
 
@@ -85,7 +85,7 @@ def customers_create(request):
 
 
 def orders_index(request):
-    orders = Order.objects.all()
+    orders = Order.objects.order_by('pk')
     context = {'orders': orders}
     return render(request, 'webkiosk/orders/index.html', context)
 
