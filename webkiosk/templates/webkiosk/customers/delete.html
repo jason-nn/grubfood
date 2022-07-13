@@ -1,0 +1,33 @@
+{% extends 'webkiosk/base.html' %} {% block body %}
+
+<h1>Are you sure you want to delete this customer?</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <td>{{ customer.pk }}</td>
+  </tr>
+  <tr>
+    <th>First name</th>
+    <td>{{ customer.firstname }}</td>
+  </tr>
+  <tr>
+    <th>Last name</th>
+    <td>{{ customer.lastname }}</td>
+  </tr>
+  <tr>
+    <th>Address</th>
+    <td>{{ customer.address }}</td>
+  </tr>
+  <tr>
+    <th>City</th>
+    <td>{{ customer.city }}</td>
+  </tr>
+</table>
+
+<form action="{% url 'webkiosk:customers_destroy' customer.pk %}" method="post">
+  {% csrf_token %}
+  <input type="submit" value="Delete customer" />
+</form>
+
+{% endblock body %}

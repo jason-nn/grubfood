@@ -18,7 +18,7 @@
     <td>{{ food.price }}</td>
     <td><a href="{% url 'webkiosk:foods_show' food.pk %}">Show</a></td>
     <td><a href="{% url 'webkiosk:foods_edit' food.pk %}">Edit</a></td>
-    <td><a href="">Delete</a></td>
+    <td><a href="{% url 'webkiosk:foods_delete' food.pk %}">Delete</a></td>
   </tr>
   {% endfor %}
 </table>

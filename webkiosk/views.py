@@ -56,6 +56,21 @@ def foods_update(request, food_id):
         return HttpResponseRedirect(reverse('webkiosk:foods_edit', args=(food_id,)))
 
 
+def foods_delete(request, food_id):
+    food = get_object_or_404(Food, pk=food_id)
+    context = {'food': food}
+    return render(request, 'webkiosk/foods/delete.html', context)
+
+
+def foods_destroy(request, food_id):
+    food = get_object_or_404(Food, pk=food_id)
+    if request.method == 'POST':
+        food.delete()
+        return HttpResponseRedirect(reverse('webkiosk:foods_index'))
+    else:
+        return HttpResponseRedirect(reverse('webkiosk:foods_delete', args=(food_id,)))
+
+
 def customers_index(request):
     customers = Customer.objects.order_by('pk')
     context = {'customers': customers}
@@ -102,6 +117,21 @@ def customers_update(request, customer_id):
         return HttpResponseRedirect(reverse('webkiosk:customers_edit', args=(customer_id,)))
 
 
+def customers_delete(request, customer_id):
+    customer = get_object_or_404(Customer, pk=customer_id)
+    context = {'customer': customer}
+    return render(request, 'webkiosk/customers/delete.html', context)
+
+
+def customers_destroy(request, customer_id):
+    customer = get_object_or_404(Customer, pk=customer_id)
+    if request.method == 'POST':
+        customer.delete()
+        return HttpResponseRedirect(reverse('webkiosk:customers_index'))
+    else:
+        return HttpResponseRedirect(reverse('webkiosk:customers_delete', args=(customer_id,)))
+
+
 def orders_index(request):
     orders = Order.objects.order_by('pk')
     context = {'orders': orders}
@@ -146,3 +176,18 @@ def orders_update(request, order_id):
             return HttpResponseRedirect(reverse('webkiosk:orders_index'))
     else:
         return HttpResponseRedirect(reverse('webkiosk:orders_edit', args=(order_id,)))
+
+
+def orders_delete(request, order_id):
+    order = get_object_or_404(Order, pk=order_id)
+    context = {'order': order}
+    return render(request, 'webkiosk/orders/delete.html', context)
+
+
+def orders_destroy(request, order_id):
+    order = get_object_or_404(Order, pk=order_id)
+    if request.method == 'POST':
+        order.delete()
+        return HttpResponseRedirect(reverse('webkiosk:orders_index'))
+    else:
+        return HttpResponseRedirect(reverse('webkiosk:orders_delete', args=(order_id,)))

@@ -18,7 +18,7 @@
     <td>{{ order.orderdatetime }}</td>
     <td><a href="{% url 'webkiosk:orders_show' order.pk %}">Show</a></td>
     <td><a href="{% url 'webkiosk:orders_edit' order.pk %}">Edit</a></td>
-    <td><a href="">Delete</a></td>
+    <td><a href="{% url 'webkiosk:orders_delete' order.pk %}">Delete</a></td>
   </tr>
   {% endfor %}
 </table>

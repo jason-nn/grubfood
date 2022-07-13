@@ -1,0 +1,29 @@
+{% extends 'webkiosk/base.html' %} {% block body %}
+
+<h1>Are you sure you want to delete this food?</h1>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <td>{{ food.pk }}</td>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <td>{{ food.name }}</td>
+  </tr>
+  <tr>
+    <th>Description</th>
+    <td>{{ food.description }}</td>
+  </tr>
+  <tr>
+    <th>Price</th>
+    <td>{{ food.price }}</td>
+  </tr>
+</table>
+
+<form action="{% url 'webkiosk:foods_destroy' food.pk %}" method="post">
+  {% csrf_token %}
+  <input type="submit" value="Delete food" />
+</form>
+
+{% endblock body %}

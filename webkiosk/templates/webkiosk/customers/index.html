@@ -18,7 +18,9 @@
     <td>{{ customer.city }}</td>
     <td><a href="{% url 'webkiosk:customers_show' customer.pk %}">Show</a></td>
     <td><a href="{% url 'webkiosk:customers_edit' customer.pk %}">Edit</a></td>
-    <td><a href="">Delete</a></td>
+    <td>
+      <a href="{% url 'webkiosk:customers_delete' customer.pk %}">Delete</a>
+    </td>
   </tr>
   {% endfor %}
 </table>
