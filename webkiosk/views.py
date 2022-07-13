@@ -6,7 +6,7 @@ from .models import Food, Customer, Order
 
 
 def index(request):
-    return HttpResponse('Home')
+    return render(request, 'webkiosk/index.html')
 
 
 def foods_index(request):
