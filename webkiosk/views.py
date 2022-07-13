@@ -84,6 +84,24 @@ def customers_create(request):
         return HttpResponseRedirect(reverse('webkiosk:customers_new'))
 
 
+def customers_edit(request, customer_id):
+    customer = get_object_or_404(Customer, pk=customer_id)
+    form = CustomerForm(instance=customer)
+    context = {'form': form, 'customer_id': customer_id}
+    return render(request, 'webkiosk/customers/edit.html', context)
+
+
+def customers_update(request, customer_id):
+    customer = get_object_or_404(Customer, pk=customer_id)
+    if request.method == 'POST':
+        form = CustomerForm(request.POST, instance=customer)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('webkiosk:customers_index'))
+    else:
+        return HttpResponseRedirect(reverse('webkiosk:customers_edit', args=(customer_id,)))
+
+
 def orders_index(request):
     orders = Order.objects.order_by('pk')
     context = {'orders': orders}
