@@ -76,3 +76,19 @@ def orders_show(request, order_id):
     order = get_object_or_404(Order, pk=order_id)
     context = {'order': order}
     return render(request, 'webkiosk/orders/show.html', context)
+
+
+def orders_new(request):
+    form = OrderForm()
+    context = {'form': form}
+    return render(request, 'webkiosk/orders/new.html', context)
+
+
+def orders_create(request):
+    if request.method == 'POST':
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse('webkiosk:orders_index'))
+    else:
+        return HttpResponseRedirect(reverse('webkiosk:orders_new'))

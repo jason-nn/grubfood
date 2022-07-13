@@ -28,8 +28,8 @@ urlpatterns = [
     #      views.customers_destroy, name='customers_destroy'),
 
     path('orders', views.orders_index, name='orders_index'),
-    # path('orders/new', views.orders_new, name='orders_new'),
-    # path('orders/create', views.orders_create, name='orders_create'),
+    path('orders/new', views.orders_new, name='orders_new'),
+    path('orders/create', views.orders_create, name='orders_create'),
     path('orders/<int:order_id>', views.orders_show, name='orders_show'),
     # path('orders/<int:order_id>/edit', views.orders_edit, name='orders_edit'),
     # path('orders/<int:order_id>/update',

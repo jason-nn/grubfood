@@ -30,8 +30,10 @@ class Order(models.Model):
         ('Card', 'Card'),
     ]
 
-    orderdatetime = models.DateTimeField(default=datetime.now())
-    paymentmode = models.CharField(max_length=4, choices=PAYMENT_CHOICES)
+    orderdatetime = models.DateTimeField(
+        default=datetime.now(), verbose_name='date and time of order')
+    paymentmode = models.CharField(
+        max_length=4, choices=PAYMENT_CHOICES, verbose_name='payment mode')
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     food = models.ForeignKey(Food, on_delete=models.CASCADE)
     quantity = models.IntegerField()
