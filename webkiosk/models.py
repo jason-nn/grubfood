@@ -20,6 +20,9 @@ class Customer(models.Model):
     def __str__(self):
         return f'[{self.pk}] {self.firstname} {self.lastname}, {self.address}, {self.city}'
 
+    def orders(self):
+        return self.order_set.all()
+
 
 class Order(models.Model):
     PAYMENT_CHOICES = [
@@ -35,3 +38,6 @@ class Order(models.Model):
 
     def __str__(self):
         return f'[{self.pk}] {self.customer.firstname} {self.customer.lastname}, {self.food.name}, {self.quantity}, {self.orderdatetime}'
+
+    def totalprice(self):
+        return self.quantity * self.food.price
