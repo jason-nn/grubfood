@@ -3,7 +3,7 @@
 <h1>Add Customer</h1>
 
 <form action="{% url 'webkiosk:customers_create' %}" method="post">
-  {% csrf_token %} {{ form.as_ul }}
+  {% csrf_token %} {{ form.as_p }}
   <input type="submit" value="Add Customer" />
 </form>
 
